@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Footer from './components/footer/Footer'
+import Header from './components/inputSection/InputSection'
+import List from './components/list/ListSection'
+import { Card } from 'antd'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='cardPostion'>
+      <Card style={{ width: '100%', border: '1px solid rgba(0, 0, 0, 0.1)', margin: 'o auto', borderRadius: '10px' }}>
+        <p className='title'>待办事宜记录本</p>
+        <Header></Header>
+      </Card>
+      <List></List>
+      <Footer></Footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

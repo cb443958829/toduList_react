@@ -1,0 +1,12 @@
+.listSection {
+  margin-top: 15px;
+}
+.listSection .checkbox {
+  margin-right: 20px;
+}
+.listSection .ant-list-item {
+  border-bottom: 1px solid rgba(212, 211, 194, 0.5) !important;
+}
+.listSection .ant-list-item .modify {
+  background-color: #3fc050;
+}

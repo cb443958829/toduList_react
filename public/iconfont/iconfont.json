@@ -1,0 +1,72 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1410327",
+      "name": "error",
+      "font_class": "error",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "17457910",
+      "name": "狗狗-01",
+      "font_class": "gougou-01",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "17457911",
+      "name": "大熊猫-01",
+      "font_class": "daxiongmao-01",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "17457912",
+      "name": "老虎-01",
+      "font_class": "laohu-01",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "17457914",
+      "name": "猴子",
+      "font_class": "houzi",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "17457915",
+      "name": "猫头鹰-01",
+      "font_class": "maotouying-01",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "17457916",
+      "name": "狐狸-01",
+      "font_class": "huli-01",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "17457917",
+      "name": "松鼠-01",
+      "font_class": "songshu-01",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "17457918",
+      "name": "猫咪-01",
+      "font_class": "maomi-01",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}
