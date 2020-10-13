@@ -5,3 +5,13 @@
   transform: translateX(-50%);
   border-radius: 10px;
 }
+.inputSection .msgsuccess {
+  text-align: center;
+  font-size: 16px;
+  color: #2feb2f;
+}
+.inputSection .msgerror {
+  text-align: center;
+  font-size: 16px;
+  color: #f0680e;
+}

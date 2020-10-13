@@ -10,3 +10,19 @@
 .listSection .ant-list-item .modify {
   background-color: #3fc050;
 }
+.listSection .seeListStyle {
+  border: 1px solid black !important;
+}
+.blank {
+  height: 10px;
+}
+.msgsuccess {
+  text-align: center;
+  font-size: 16px;
+  color: #2feb2f;
+}
+.msgerror {
+  text-align: center;
+  font-size: 16px;
+  color: #f0680e;
+}

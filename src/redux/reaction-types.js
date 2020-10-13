@@ -1,0 +1,5 @@
+export const ADDTHINGS = 'addthings'
+export const MODIFY = 'modify'
+export const DEL = 'del'
+export const MODIFYSTATE = 'modifystate'
+export const HANDLESHOW = 'handleshow'
