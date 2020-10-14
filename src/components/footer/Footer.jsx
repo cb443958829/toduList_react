@@ -53,15 +53,16 @@ class Footer extends React.Component {
 
   render() {
     const { unDoneCount } = this.state
-    const { handleShow } = this.props
+    const { handleShow, typeData } = this.props
+
     return (
       <Card>
         <Space className='space'>
           <span>共有{unDoneCount}条未处理</span>
-          <Button type={ this.state.type === 'all'? 'primary': 'default'} onClick={handleShow.bind(this, 'all')}>全部事件</Button>
-          <Button type={ this.state.type === 'undone'? 'primary': 'default'} onClick={handleShow.bind(this, 'undone')}>未处理 </Button>
-          <Button type={ this.state.type === 'done'? 'primary': 'default'} onClick={handleShow.bind(this, 'done')}>已经处理</Button>
-          <Button type={ this.state.type === 'del'? 'primary': 'default'} onClick={handleShow.bind(this, 'del')}>清除已处理</Button>
+          <Button type={ typeData === 'all'? 'primary': 'default'} onClick={handleShow.bind(this, 'all')}>全部事件</Button>
+          <Button type={ typeData === 'undone'? 'primary': 'default'} onClick={handleShow.bind(this, 'undone')}>未处理 </Button>
+          <Button type={ typeData === 'done'? 'primary': 'default'} onClick={handleShow.bind(this, 'done')}>已经处理</Button>
+          <Button type={ typeData === 'del'? 'primary': 'default'} onClick={handleShow.bind(this, 'del')}>清除已处理</Button>
         </Space>
       </Card>
     )
