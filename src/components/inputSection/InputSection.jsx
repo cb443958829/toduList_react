@@ -57,6 +57,16 @@ class InputSection extends React.Component {
   // 绑定输入框对象
   handleChange(type, e) {
     const value = e.target.value.trim()
+    if (!value || (type === 'title' && value.length < 3)) {
+      this.setState((preState) => {
+        const { validate } = preState
+        validate[type] = false
+        return {
+          validate,
+        }
+      })
+      console.log(222222)
+    }
     const newFormData = {}
     // console.log(type, value)
     this.setState((preState) => {
@@ -96,6 +106,9 @@ class InputSection extends React.Component {
           pos: false,
         },
       })
+      setTimeout(()=> {
+        this.setState({msg: ''})
+      }, 2000)
     } else {
       this.setState({
         msg: msgData.total.msg1,

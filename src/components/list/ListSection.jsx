@@ -11,8 +11,10 @@ class ListSection extends React.Component {
   }
   state = {
     loading: false,
+    loading1: false,
     visible: false,
     visible1: false,
+    visible2: false,
     title: '',
     content: '',
     time: '',
@@ -34,24 +36,24 @@ class ListSection extends React.Component {
     msgData: {
       title: {
         msg1: '请输入标题',
-        msg2: '标题添加成功',
+        msg2: '标题修改成功',
         msg3: '输入格式不正确,输入的字符数至少3个',
       },
       content: {
         msg1: '请输入内容',
-        msg2: '内容添加成功',
+        msg2: '内容修改成功',
       },
       time: {
         msg1: '请输入时间',
-        msg2: '时间添加成功',
+        msg2: '时间修改成功',
       },
       pos: {
         msg1: '请输入地点',
-        msg2: '地点添加成功',
+        msg2: '地点修改成功',
       },
       total: {
         msg1: '请完善信息',
-        msg2: '添加信息成功',
+        msg2: '修改信息成功',
       },
     },
   }
@@ -65,6 +67,11 @@ class ListSection extends React.Component {
       visible1: true,
     })
   }
+  showModal2 = () => {
+    this.setState({
+      visible2: true,
+    })
+  }
   handleOk = () => {
     const { validate, msgData } = this.state
     const { modify } = this.props
@@ -76,7 +83,7 @@ class ListSection extends React.Component {
     if (isOk) {
       this.setState({ loading: true })
       setTimeout(() => {
-        this.setState({ loading: false, visible: false })
+        this.setState({ loading: false, visible: false, msg: '' })
       }, 1000)
       const objData = {}
       Object.keys(this.state).forEach((key) => {
@@ -108,6 +115,7 @@ class ListSection extends React.Component {
 
       this.setState({
         msg: msgData.total.msg2,
+        flagType: 'msgsuccess',
         formData: {
           title: '',
           content: '',
@@ -131,7 +139,12 @@ class ListSection extends React.Component {
   }
 
   handleCancel = () => {
-    this.setState({ visible: false })
+    const { type } = this.state
+    if(type === 'modify') {
+      this.showModal2()
+    } else {
+      this.setState({ visible: false, msg: '' })
+    }
   }
   // del 对话框
   handleOk1 = () => {
@@ -146,8 +159,25 @@ class ListSection extends React.Component {
   handleCancel1 = () => {
     this.setState({ visible1: false })
   }
+  handleOk2 = () => {
+    this.setState({ loading1: true })
+    setTimeout(() => {
+      this.setState({ loading1: false, visible2: false, visible: false })
+    }, 1000)
+  }
+  handleCancel2 = () => {
+    this.setState({ visible2: false })
+  }
   // 处理列表区内容显示
   handleType(id, type) {
+    this.setState({
+      validate: {
+        title: true,
+        content: true,
+        time: true,
+        pos: true,
+      }
+    })
     const { storeData } = this.props
     this.showModal()
     storeData.forEach((item) => {
@@ -169,6 +199,15 @@ class ListSection extends React.Component {
   handleChange(type, e) {
     let value = ''
     if (type !== 'isDone') {
+      if(!e.target.value || (type ==='title' && e.target.value.trim().lenght <3)) {
+        this.setState((preState) => {
+          const { validate } = preState
+          validate[type] = false
+          return {
+            validate
+          }
+        })
+      } 
       value = e.target.value
     } else if (type === 'isDone') {
       value = e.target.checked
@@ -227,7 +266,7 @@ class ListSection extends React.Component {
     }
   }
   render() {
-    const { visible, loading, title, content, time, pos, type, isDone, visible1, flagType, msg } = this.state
+    const { visible, loading, title, content, time, pos, type, isDone, visible1, visible2, flagType, msg } = this.state
     const { storeData, typeData, delData } = this.props
     let showData = []
     console.log(typeData)
@@ -323,6 +362,22 @@ class ListSection extends React.Component {
           ]}
         >
           <span>确定要修改当前事件状态吗</span>
+        </Modal>
+        <Modal
+          visible={visible2}
+          title='修改取消'
+          onOk={this.handleOk2}
+          onCancel={this.handleCancel2}
+          footer={[
+            <Button key='取消' onClick={this.handleCancel2}>
+              返回
+            </Button>,
+            <Button key='确定' type='primary' loading={loading} onClick={this.handleOk2}>
+              确定
+            </Button>,
+          ]}
+        >
+          <span>是否取消修改当前事件</span>
         </Modal>
       </div>
     )
